@@ -1,0 +1,476 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;700&display=swap');
+
+:root {
+  --brand-color: #e35640;
+  --blue-color: #14123c;
+}
+
+* {
+  box-sizing: border-box;
+  font-size: 10px;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 1px;
+}
+
+.header__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  border: none !important;
+  position: relative;
+  height: 100%;
+  max-width: 130rem;
+  margin: 0 auto;
+}
+
+.top-wrapper {
+  padding: 2rem 0 1rem 0;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.branding__link img {
+  width: 15rem;
+}
+
+.search {
+  max-width: 30.1rem;
+}
+
+.search__form {
+  max-width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.search__form__field {
+  width: 24rem;
+  margin: 0 1.5rem 0;
+  padding: 0;
+  line-height: .8;
+  border: none;
+  border-bottom: 1px solid #5e5e5e;
+  color: #686868;
+}
+
+.search__form__field:focus {
+  outline: none;
+}
+
+.search__form__button {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  display: inline-block;
+  color: #fff;
+  background-color: var(--brand-color);
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.search__form__button svg {
+  height: 1.6rem;
+  width: 1.6rem;
+  padding: 0 0 0 1px;
+}
+
+.search__form__button:hover {
+  filter: invert(49%) sepia(29%) saturate(1246%) hue-rotate(320deg) brightness(87%) contrast(104%);
+  color: var(--brand-color);
+  background-color: transparent;
+  border: 1px solid var(--brand-color);
+}
+
+.qodef-svg--search {
+  fill: none;
+  stroke: currentColor;
+}
+
+.bottom__wrapper {
+  height: 6rem;
+  border-top: 1px solid #eeedeb;
+  border-bottom: 1px solid #eeedeb;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navigation {
+  height: 100%;
+}
+
+.menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  white-space: nowrap;
+  margin: 0 !important;
+  padding: 0;
+  list-style: none;
+}
+
+.menu__item {
+  margin: 0 25px;
+}
+
+.menu__item:first-child {
+  margin-left: 0;
+}
+
+.menu__item a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #000;
+}
+
+.menu__item span {
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.menu__item span:hover {
+  color: var(--brand-color);
+}
+
+main {
+  max-width: 130rem;
+  margin: 5rem auto;
+}
+
+.box__header {
+  margin: 0 auto 4rem;
+}
+
+.box__header h6 {
+  text-align: center;
+  color: var(--brand-color);
+  text-transform: uppercase;
+  position: relative;
+  font-style: normal;
+  font-size: 1.3rem;
+  line-height: 1.4em;
+  max-width: 30rem;
+  margin: 0 auto 1rem;
+}
+
+.box__header h2 {
+  font-size: 3.6rem;
+  font-family: 'Dancing Script', cursive;
+  line-height: 1.1;
+  text-align: center;
+  color: var(--blue-color);
+}
+
+.box__header h5 {
+  max-width: 56rem;
+  clear: both;
+  float: inherit;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  line-height: 1.625;
+  font-weight: 400;
+  text-align: center;
+  font-size: 1.6rem;
+  opacity: .4;
+}
+
+.box__container {
+  display: flex;
+  gap: 3rem;
+}
+
+.recipe {
+  width: 33.5rem;
+}
+
+.thumbnail__recipe {
+  z-index: 1;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.size__medium {
+  clip-path: polygon(0 0, 102% 0, 102% 75%, 0% 100%);
+  height: 30rem;
+}
+
+.size__medium::before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(29, 38, 46, 0), rgba(29, 38, 46, .75) 100%);
+  opacity: .7;
+}
+
+.recipe__footer {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1.5rem 0;
+}
+
+.recipe__portions object,
+.recipe__cooking_time object {
+  margin: .2rem .5rem 0 0;
+}
+
+.recipe__portions span,
+.recipe__cooking_time span {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #404040;
+  opacity: .5;
+}
+
+.recipe__title {
+  transition: .3s ease-in-out all;
+  text-align: center;
+  word-break: break-word;
+}
+
+.recipe__title a {
+  color: var(--blue-color);
+  text-decoration: none;
+  font-size: 2.1rem;
+  line-height: 1.33;
+}
+
+.recipe:hover .recipe__title a {
+  color: var(--brand-color);
+}
+
+.sem__receita{
+  text-align: center;
+  font-size: 3rem;
+  opacity: .4;
+  margin: 4rem auto 0;
+}
+
+
+/* PÁGINA DE RECEITA */
+
+.entry__title {
+  color: var(--blue-color);
+  font-size: 5.2rem;
+  margin-bottom: 2.4rem;
+}
+
+.size__large {
+  height: 30rem;
+  margin-bottom: 1.8rem;
+}
+
+.entry__meta {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.entry__author__avatar {
+  width: 5.5rem;
+  height: 5.5rem;
+  background: white;
+  margin-right: 2.7rem;
+}
+
+.entry__author__avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+
+.entry__author__name {
+  padding-top: 1.5rem;
+}
+
+.author {
+  font-size: 2rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.date {
+  margin: 0;
+}
+
+.entry__author__name__and__date {
+  place-self: center;
+}
+
+.entry__author__name__and__date .author {
+  font-family: 'Dancing Script', cursive;
+}
+
+.entry__info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 -18px 18px;
+}
+
+.entry__lines {
+  width: 100%;
+  height: 1px;
+  border-top: 1px solid #eeedeb;
+  margin: 0 18px;
+}
+
+.entry__info__preparing, .entry__info__serving, .entry__info__category{
+  position: relative;
+  flex: 0 0 auto;
+  height: 2.4rem;
+  margin: 0 1.3rem;
+  opacity: .7;
+}
+
+.entry__info__preparing span, .entry__info__serving span, .entry__info__category a{
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.entry__info__preparing object, .entry__info__serving object, .entry__info__category object{
+  margin-right: .5rem;
+}
+
+.entry__info__category a{
+  color: var(--brand-color);
+}
+
+.entry__info__category::before{
+  content: '';
+  position: absolute;
+  right: 64px;
+  height: 27px;
+  width: 1px;
+  background-color: #eeedeb;
+}
+
+.entry__content{
+  display: flex;
+  justify-content: space-between;
+}
+
+.entry__content__section{
+  width: 50%;
+}
+
+.entry__content__section h2{
+  font-size: 4.4rem;
+  font-family: 'Dancing Script', cursive;
+}
+
+.__text{
+  font-size: 1.2rem;
+  font-family: sans-serif;
+}
+
+
+/* PÁGINA DE LOGIN */
+
+.page__title{
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+}
+
+.wrapper__form{
+  max-width: 50rem;
+  padding: 60px; 
+  background-color: #fff;
+  border-radius: 8px;
+  margin: 0 auto 5rem;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 0 24px 0 rgb(29 38 46 / 8%);
+}
+
+.form__groups{
+  display: flex;
+  gap: 3rem;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.form__group label{
+  padding-bottom: .5rem;
+  font-size: 1.4rem;
+}
+
+.form__group input, .form__group select, .form__group textarea{
+  border-radius: 3px;
+  border: solid 1px rgba(55,73,87,.2);
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  height: 4.6rem;
+  padding: 1.6rem 1rem 1.4rem;
+  font-size: 1.5rem;
+  font-family: sans-serif;
+}
+
+.form__group textarea{
+  resize: none;
+  height: 15rem;
+}
+
+.form__group select{
+  padding: 0 1rem;
+}
+
+.form__group select option{
+  font-size: 1.6rem;
+}
+
+.btn__primary, .btn__inverse{
+  height: 5rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.btn__primary{
+  width: 15rem;
+  background: var(--brand-color);
+  color: white;
+  border: 1px solid transparent;
+}
+
+.btn__inverse{
+  color: var(--blue-color);
+  border: 1px solid var(--blue-color);
+  background: transparent;
+  text-decoration: none;
+  padding: 1.3rem 1.8rem;
+  margin-left: 1rem;
+}
+
+/* PÁGINA DE ENVIAR RECEITA */
+
+.wrapper__recipe__form{
+  padding: 6rem;
+  background-color: #fff;
+  border-radius: .8rem;
+  margin-bottom: 5rem;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 0 24px 0 rgb(29 38 46 / 8%);
+  margin: 3rem 0;
+}
+
+.form__groups__recipe{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3rem;
+  align-items: start;
+}
+
+.login__submit__recipe{
+  place-self: end;
+}

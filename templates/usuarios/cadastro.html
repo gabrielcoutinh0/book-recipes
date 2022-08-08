@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include 'partials/_menu.html' %}
+
+<main>
+  <div class="wrapper__form">
+    <header class="page__header">
+      <h1 class="page__title">Cadastro</h1>
+      <form action="{% url 'cadastro' %}" method="POST" class="form__groups">
+        {% csrf_token %}
+        <div class="form__group login__username">
+          <label for="user__login">Usuário</label>
+          <input type="text" name="username" id="user__login" class="form__control" value size="20" required>
+        </div>
+        <div class="form__group login__email">
+          <label for="user__login">E-mail</label>
+          <input type="email" name="email" id="user__login" class="form__control" value size="30" required>
+        </div>
+        <div class="form__group login__nome">
+          <label for="user__nome">Nome</label>
+          <input type="text" name="name" id="user__nome" class="form__control" value size="30" required>
+        </div>
+        <div class="form__group login__password">
+          <label for="user__password">Senha</label>
+          <input type="password" name="password" id="user__password" class="form__control" value size="20" required>
+        </div>
+        <div class="form__group login__password">
+          <label for="user__confirm__password">Confirmar senha</label>
+          <input type="password" name="confirm_password" id="user__confirm__password" class="form__control" value size="20" required>
+        </div>
+        <div class="form__group login__submit">
+          <button type="submit" class="btn__primary">Cadastrar</button>
+          <a href="{% url 'login' %}" class="btn__inverse">Já possuo uma conta</a>
+        </div>
+      </form>
+  </div>
+</main>
+</header>
+
+{% include 'partials/_footer.html' %}
+{% endblock %}

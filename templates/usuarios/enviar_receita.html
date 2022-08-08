@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include 'partials/_menu.html' %}
+
+<main>
+  <div class="wrapper__recipe__form">
+    <header class="page__header">
+      <h1 class="page__title">Envie sua receita</h1>
+      <form action="{% url 'enviar_receita' %}" method="POST" class="form__groups__recipe" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form__group post__title">
+          <label for="post__title">Título da receita</label>
+          <input type="text" name="nome" id="post__title" class="form__control" value required>
+        </div>
+        <div class="form__group featured__image">
+          <label for="featured__image">Imagem em destaque</label>
+          <input type="file" name="foto" id="featured__image" class="form__control" required>
+        </div>
+        <div class="form__group prepare__time">
+          <label for="prepare__time">Tempo de preparação - <span>em minutos</span></label>
+          <input type="number" name="tempo_preparo" id="prepare__time" class="form__control" min="1" value required>
+        </div>
+        <div class="form__group servings">
+          <label for="servings">Rendimento - <span>número de porções</span></label>
+          <input type="number" name="rendimento" id="servings" class="form__control" min="1" value required>
+        </div>
+        <div class="form__group tag">
+          <label for="tag">Categoria</label>
+          <select name="categoria" id="tag" class="form__control">
+            <option value="ave">Ave</option>
+            <option value="bebida">Bebida</option>
+            <option value="bolo">Bolo</option>
+            <option value="carne">Carne</option>
+            <option value="lanche">Lanche</option>
+            <option value="massa">Massa</option>
+            <option value="molho">Molho</option>
+            <option value="peixe">Peixe</option>
+            <option value="salada">Salada</option>
+            <option value="saudavel">Saudável</option>
+            <option value="sobremesa">Sobremesa</option>
+            <option value="sopa">Sopa</option>
+          </select>
+        </div>
+        <div class="form__group ingredients">
+          <label for="ingredients">Ingredientes - <span>Escreva os ingredientes cada um em uma linha
+              separada</span></label>
+          <textarea name="ingredientes" id="ingredients" class="form__control" value required></textarea>
+        </div>
+        <div class="form__group modo__preparo">
+          <label for="modo__preparo">Modo de preparo - <span>Escreva os ingredientes cada um em uma linha
+              separada</span></label>
+          <textarea name="modo_preparo" id="modo__preparo" class="form__control" value required></textarea>
+        </div>
+
+        <div class="form__group login__submit__recipe">
+          <button type="submit" class="btn__primary">Cadastrar</button>
+          <button type="reset" class="btn__inverse">Limpar</button>
+        </div>
+      </form>
+  </div>
+</main>
+</header>
+
+{% include 'partials/_footer.html' %}
+{% endblock %}

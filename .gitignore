@@ -1,0 +1,6 @@
+.vscode/
+Makefile
+venv/
+.env
+*.log
+_pycache_

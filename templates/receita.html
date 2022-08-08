@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'partials/_menu.html' %}
+
+<main>
+  <article class="entry__recipe">
+    <header class="entry__header">
+      <h1 class="entry__title">{{ receita.nome }}</h1>
+      <div class="entry__meta">
+        <div class="entry__author__avatar">
+          <a href=""><img src="https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358_960_720.jpg"
+              alt=""></a>
+        </div>
+        <div class="entry__author__name__and__date">
+          <a href="" class="author">{{ receita.pessoa.first_name }}</a>
+          <p class="date">{{ receita.data_receita }}</p>
+        </div>
+      </div>
+      {% if receita.foto == '' %}
+        <span class="thumbnail__recipe size__large" style="background-image: url('{% static 'Image/receita_sem_imagem.png' %}');"></span>
+      {% else %}
+        <span class="thumbnail__recipe size__large" style="background-image: url('{{ receita.foto.url }}');"></span>
+      {% endif %}
+      <div class="entry__info">
+        <span class="entry__lines"></span>
+        <div class="entry__info__preparing">
+          <object data="{% static 'Image/cooking-time.svg' %}" width="21" height="21"></object>
+          <span>{{ receita.tempo_preparo }} minutos</span>
+        </div>
+        <div class="entry__info__serving">
+          <object data="{% static 'Image/ingredients.svg' %}" width="21" height="21"></object>
+          <span>{{ receita.rendimento }} Porções</span>
+        </div>
+        <div class="entry__info__category">
+          <object data="{% static 'Image/tag.svg' %}" width="21" height="21"></object>
+          <a href="{%url 'categoria' receita.categoria %}">{{ receita.categoria }}</a>
+        </div>
+        <span class="entry__lines"></span>
+      </div>
+    </header>
+    <div class="entry__content">
+      <div class="entry__content__section">
+        <h2>Ingredientes:</h2>
+        <p class="__text">{{ receita.ingredientes | linebreaksbr }}</p>
+      </div>
+      <div class="entry__content__section">
+        <h2>Modo de preparo:</h2>
+        <p class="__text">{{ receita.modo_preparo | linebreaksbr }}</p>
+      </div>
+    </div>
+    <footer></footer>
+  </article>
+</main>
+
+{% include 'partials/_footer.html' %}
+{% endblock %}

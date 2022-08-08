@@ -1,0 +1,56 @@
+{% load static %}
+<header>
+  <div class="header__container">
+    <div class="top-wrapper">
+      <a href="{% url 'index' %}" class="branding__link">
+        <img src="{% static 'Image/logo.svg' %}" alt="Receitas - Cozinhando com a comunidade">
+      </a>
+      <div class="search">
+        <form action="{% url 'busca' %}" class="search__form">
+          <input type="search" name="busca" class="search__form__field" placeholder="Search">
+          <button class="search__form__button" aria-hidden="true">
+            <svg class="qodef-svg--search" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px" y="0px" width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28"
+              xml:space="preserve">
+              <g>
+                <circle fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-miterlimit="10" cx="10.783" cy="11.547" r="9"></circle>
+                <line fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-miterlimit="10" x1="24.783" y1="25.547" x2="17.143" y2="17.906"></line>
+              </g>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="bottom__wrapper">
+      {% if user.is_authenticated %}
+        <nav class="navigation">
+          <ul class="menu">
+            <li class="menu__item"><a href="{% url 'index' %}"><span>Home</span></a></li>
+            <li class="menu__item"><a href="{% url 'dashboard' %}"><span>Minhas receitas</span></a></li>
+          </ul>
+        </nav>
+        <div class="navigation__extras">
+          <ul class="menu">
+            <li class="menu__item"><a href="{% url 'enviar_receita' %}"><span>Enviar sua receita</span></a></li>
+            <li class="menu__item"><a href="{% url 'logout' %}"><span>Logout</span></a></li>
+          </ul>
+        </div>
+      {% else %}
+        <nav class="navigation">
+          <ul class="menu">
+            <li class="menu__item"><a href="{% url 'index' %}"><span>Home</span></a></li>
+          </ul>
+        </nav>
+        <div class="navigation__extras">
+          <ul class="menu">
+            <li class="menu__item"><a href="{% url 'enviar_receita' %}"><span>Enviar sua receita</span></a></li>
+            <li class="menu__item"><a href="{% url 'cadastro' %}"><span>Cadastre-se</span></a></li>
+            <li class="menu__item"><a href="{% url 'login' %}"><span>Entrar</span></a></li>
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</header>

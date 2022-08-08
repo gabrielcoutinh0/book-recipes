@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'partials/_menu.html' %}
+
+<main>
+  <header class="box__header">
+    <h6>Últimas receitas adicionadas</h6>
+    <h2>Receitas selecionadas para você</h2>
+    <h5>Por que não experimentar uma dessas novas receitas, feitas na hora pela comunidade.</h5>
+  </header>
+  <div class="box__container">
+    {% if receitas %}
+    {% for receita in receitas %}
+    <article class="recipe">
+      <header class="header__recipe">
+        {% if receita.foto == '' %}
+        <a><span class="thumbnail__recipe size__medium"
+            style="background-image: url('{% static 'Image/receita_sem_imagem.png' %}');"></span></a>
+        {% else %}
+        <a><span class="thumbnail__recipe size__medium"
+            style="background-image: url('{{ receita.foto.url }}');"></span></a>
+        {% endif %}
+      </header>
+      <div class="recipe__content">
+        <footer class="recipe__footer">
+          <div class="recipe__portions">
+            <object data="{% static 'Image/ingredients.svg' %}" width="21" height="21"></object>
+            <span>{{ receita.rendimento }} Porções</span>
+          </div>
+          <div class="recipe__cooking_time">
+            <object data="{% static 'Image/cooking-time.svg' %}" width="21" height="21"></object>
+            <span>{{ receita.tempo_preparo }} minutos</span>
+          </div>
+        </footer>
+        <h3 class="recipe__title">
+          <a href="{% url 'receita' receita.id %}">{{ receita.nome }}</a>
+        </h3>
+      </div>
+    </article>
+    {% endfor %}
+    {% else %}
+    <h2 class="sem__receita">Nenhuma Receita cadastrada! :(</h2>
+    {% endif %}
+  </div>
+</main>
+{% include 'partials/_footer.html' %}
+{% endblock %}

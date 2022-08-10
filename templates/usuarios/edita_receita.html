@@ -7,27 +7,35 @@
   <div class="wrapper__recipe__form">
     <header class="page__header">
       <h1 class="page__title">Envie sua receita</h1>
-      <form action="{% url 'enviar_receita' %}" method="POST" class="form__groups__recipe" enctype="multipart/form-data">
+      <form action="{% url 'atualiza_receita' %}" method="POST" class="form__groups__recipe" enctype="multipart/form-data">
         {% csrf_token %}
+        <input type="text" id="id" class="form__control" name="id" value="{{ receita.id }}" hidden>
         <div class="form__group post__title">
           <label for="post__title">Título da receita</label>
-          <input type="text" name="nome" id="post__title" class="form__control" value required>
+          <input type="text" name="nome" id="post__title" class="form__control" value="{{ receita.nome }}" required>
         </div>
         <div class="form__group featured__image">
-          <label for="featured__image">Imagem em destaque</label>
-          <input type="file" accept="image/*" name="foto" id="featured__image" class="form__control" required>
+          <div class="last__image">
+            <label for="file">Foto utilizada</label>
+            <img src="{{ receita.foto.url }}" alt="">
+          </div>
+          <div class="new__image">
+            <label for="featured__image">Adicionar nova foto</label>
+            <input type="file" accept="image/*" name="foto" id="featured__image" class="form__control" value="{{ receita.foto }}">
+          </div>
         </div>
         <div class="form__group prepare__time">
           <label for="prepare__time">Tempo de preparação - <span>em minutos</span></label>
-          <input type="number" name="tempo_preparo" id="prepare__time" class="form__control" min="1" value required>
+          <input type="number" name="tempo_preparo" id="prepare__time" class="form__control" min="1" value="{{ receita.tempo_preparo }}" required>
         </div>
         <div class="form__group servings">
           <label for="servings">Rendimento - <span>número de porções</span></label>
-          <input type="number" name="rendimento" id="servings" class="form__control" min="1" value required>
+          <input type="number" name="rendimento" id="servings" class="form__control" min="1" value="{{ receita.rendimento }}" required>
         </div>
         <div class="form__group tag">
           <label for="tag">Categoria</label>
           <select name="categoria" id="tag" class="form__control">
+            <option value="{{ receita.categoria }}" selected>{{ receita.categoria }}</option>
             <option value="ave">Ave</option>
             <option value="bebida">Bebida</option>
             <option value="bolo">Bolo</option>
@@ -45,16 +53,16 @@
         <div class="form__group ingredients">
           <label for="ingredients">Ingredientes - <span>Escreva os ingredientes cada um em uma linha
               separada</span></label>
-          <textarea name="ingredientes" id="ingredients" class="form__control" value required></textarea>
+          <textarea name="ingredientes" id="ingredients" class="form__control" required>{{ receita.ingredientes }}</textarea>
         </div>
         <div class="form__group modo__preparo">
           <label for="modo__preparo">Modo de preparo - <span>Escreva os ingredientes cada um em uma linha
               separada</span></label>
-          <textarea name="modo_preparo" id="modo__preparo" class="form__control" value required></textarea>
+          <textarea name="modo_preparo" id="modo__preparo" class="form__control" required>{{ receita.modo_preparo }}</textarea>
         </div>
 
         <div class="form__group login__submit__recipe">
-          <button type="submit" class="btn__primary">Cadastrar</button>
+          <button type="submit" class="btn__primary">Editar</button>
           <button type="reset" class="btn__inverse">Limpar</button>
         </div>
       </form>

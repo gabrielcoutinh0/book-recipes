@@ -29,6 +29,7 @@
           <label for="user__confirm__password">Confirmar senha</label>
           <input type="password" name="confirm_password" id="user__confirm__password" class="form__control" value size="20" required>
         </div>
+        {% include 'partials/_alerts.html' %}
         <div class="form__group login__submit">
           <button type="submit" class="btn__primary">Cadastrar</button>
           <a href="{% url 'login' %}" class="btn__inverse">Já possuo uma conta</a>

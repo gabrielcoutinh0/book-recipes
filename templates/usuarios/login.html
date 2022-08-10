@@ -17,6 +17,7 @@
           <label for="user__password">Senha</label>
           <input type="password" name="password" id="user__password" class="form__control" value size="20" required>
         </div>
+        {% include 'partials/_alerts.html' %}
         <div class="form__group login__submit">
           <button type="submit" class="btn__primary">Login</button>
           <a href="{% url 'cadastro' %}" class="btn__inverse">Criar nova conta</a>
